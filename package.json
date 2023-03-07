@@ -1,0 +1,47 @@
+{
+  "name": "iBallot",
+  "version": "1.0.0",
+  "description": "This is a simple newsletter-signup project",
+  "main": "app.js",
+  "pkg": {
+    "assets": "./test.db"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gaurav Pathak",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "connect": "^3.7.0",
+    "connect-sqlite3": "^0.9.13",
+    "cookie-parser": "^1.4.6",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "fs": "^0.0.1-security",
+    "googleapis": "^109.0.1",
+    "https": "^1.0.0",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "nodemailer": "^6.8.0",
+    "nodemon": "^2.0.20",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "request": "^2.88.2",
+    "smtp": "^0.1.4",
+    "sqlite3": "^5.1.2"
+  },
+  "build": {
+    "extraResources": [
+      "test.dbr"
+    ]
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.2",
+    "@types/express": "^4.17.14",
+    "@types/request": "^2.48.8"
+  }
+}

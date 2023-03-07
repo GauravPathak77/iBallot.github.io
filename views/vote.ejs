@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canditate</title>
+    <link rel="stylesheet" href="css\style.css">
+</head>
+<body style="background-image: url('/images/home.jpg'); background-size:cover">
+<% if(!value){%>
+    <table class="canditate">
+        <tr class="row">
+            <th>S.NO.</th>
+            <th>CANDITATE NAME</th>
+            <th>PARTY NAME</th>
+            <th>SYMBOL</th>
+            <th>VOTE</th>
+        </tr>
+        <% for(let i=1; i<len; i++){ %>
+        <tr class="row">
+            <td><%= data[i].Sno %></td>
+            <td><%= data[i].Candidate_Name %></td>
+            <td><%= data[i].Party_Name %></td>
+            <td><%= data[i].Symbol %></td>
+            <td><button value="1" class="vbtn" onclick="Check()">VOTE</button></td>
+        </tr>
+        <% } %>
+    </table>
+    <!-- confirmation -->
+    <div class="confirm">
+        <h3>Click on confirm to vote or cancel to go back</h3>
+        <form action="/logout" method="post">
+        <button type="submit">Confirm</button> 
+        <input type="button" value="Cancel" class="cancel">
+        <input type="button" name="val" value="-1" class="tval" style="border: 2px solid black;">
+        <input type="number" name="VAL" id="Val" value="-1" style="visibility:hidden;">
+        <!-- <input type="Number" name="val" class="val" value="-1"> -->
+        <!-- <input type="number" name="check" id="check" value=<%=value%> style="visibility:hidden;"> -->
+    </form>
+    </div>
+
+   <script>
+        function Check(){
+         for (let i = 0; i < document.querySelectorAll(".vbtn").length; i++) {
+        document.querySelectorAll(".vbtn")[i].addEventListener("click", function(){ 
+           const val = i;
+           document.querySelector("#Val").value=i;
+           buttonAnimation();
+           console.log(val);
+        } );
+    }
+}
+    function buttonAnimation(){
+        console.log("button");
+        document.querySelectorAll(".confirm")[0].style.visibility = "visible";
+        document.querySelectorAll(".cancel")[0].addEventListener("click",function(){
+        document.querySelectorAll(".confirm")[0].style.visibility = "hidden"; 
+        });
+
+    } 
+    </script> 
+<%} else{%>
+    <div class="submitted">
+        <h3>Your Vote has been Submitted</h3>
+        <a href="/" role ="button">🏠Home</a>
+    </div>
+<% } %>
+</body>
+</html>

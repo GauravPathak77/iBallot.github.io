@@ -1,0 +1,140 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.bg-image {
+    background-image: url('/images/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    /* background-repeat: no-repeat; */
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+@media (max-width: 767px) {
+    .bg-image{
+        background: #fec000;
+        background-image: none;
+    }
+    .hero {
+        background-image: url('/images/hero.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100%;
+            width: 100%;
+        }
+}
+
+/* Navigation */
+.navbar {
+    /* background-color: #333; */
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.logo {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-list {
+    display: none;
+    height: 100%;
+    position: fixed;
+    top: 60vw;
+    right: 0;
+    width: 60%;
+    z-index: 1;
+}
+
+.nav-item a {
+    color: #fff;
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    width: 100%;
+}
+
+@media (min-width: 767px) {
+    .menu-icon {
+        display: none;
+    } 
+
+    .nav-list {
+        display: flex;
+        height: auto;
+        position: static;
+        width: auto;
+    }
+
+    .nav-item {
+        display: block;
+        float: left;
+        margin-right: 1rem;
+    }
+}
+
+
+/* Hero Section */
+.hero {
+    align-items:flex-start;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 60px);
+    justify-content: center;
+    margin-left: 5vw;
+}
+
+.hero h1 {
+    font-size: 3vw;
+    margin-bottom: 1vh;
+    color:#fee279;
+    font-weight:bolder;
+    height: 10vh;
+    width: 30vw;
+}
+
+.para {
+    font-size: 1.4vw;
+    margin-bottom: 1.5vh;
+    text-align: left;
+    height: 40vh;
+    width: 30vw;
+    color: #dccdae;
+    font-weight: 300;
+}
+
+.hero_btn{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 5vw;
+    text-align: center;
+}
+.btn {
+    background-color: #333;
+    border: none;
+    color: black;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    height: 2vw;
+    width: 7vw;
+    border-radius: 2vw;
+    margin-right: 8vw;
+    text-shadow: none;
+}
+
+/* Footer */
+footer {
+    color: #fff;
+    text-align: center;
+}

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+    <title>iBallot</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
+     <meta name="theme-color" content="#712cf9">
+  
+    <!-- Custom styles for this template -->
+    <link href="css\style.css" rel="stylesheet">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+<!-- Smtp.js -->
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+  </head>
+  <body class="text-center" style="background-image: url('/images/home.jpg'); background-size:cover">
+
+<main class="form-signup w-90 m-auto">
+  <!-- <form action="/" onsubmit="Mail(); reset(); return false;" method = "post"> -->
+    <form action="/signup" method="post" class="form_contact">
+    <img class="mb-4" src="images\logo.png" alt="" width="92" height="87">
+    <h1 class="h3 mb-3 fw-normal" style="width:320px; color: rgba(229, 78, 141, 0.945);  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000; text-decoration:underline;">Register</h1>
+
+      <input type="text" class="form-control top" placeholder="Name" name="username" id = "username">
+      <input type="text" class="form-control middle" placeholder="Voter-ID" name="voterId" id = "vid">
+      <input type="email" class="form-control middle" placeholder="name@example.com" name="email" id="email" required>
+      <input type="number" name="age" class="form-control middle" placeholder="Age" id="age">
+      <input type="password" class="form-control middle" placeholder="password" name="password" id="current-password" required>
+      <span  class="form-control bottom">
+        <label for="gender"><b>Gender:</b></label>
+      <input type="radio" name="gender" value="male" class="gender" >Male
+      <input type="radio" name="gender" value="female" class="gender" >Female
+    </span>
+    <button class="w-60 btn btn-lg btn-primary" type="submit" id="submit">Register</button>
+    <p class="mt-5 mb-3">&copy; 2023</p>
+  </form>
+</main>
+  </body>
+</html>
