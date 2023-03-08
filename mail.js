@@ -1,20 +1,21 @@
-exports.mail = function(uemail,otp) {
+require("dotenv").config();
+exports.mail = function (uemail, otp) {
   const nodemailer = require("nodemailer");
 
   // Nodemailer start
   let transporter = nodemailer.createTransport({
     service: "Gmail",
     auth: {
-      user: "gaurav.api.handler.1@gmail.com",
-      pass: "uqlfyrulymlyvudz",
+      user: process.env.USER,
+      pass: process.env.PASS,
     },
   });
   console.log("working");
   const mail_configs = {
     from: "gaurav.api.handler.1@gmail.com",
     to: uemail,
-    subject: "Testing coding 101 Email",
-    text: "OTP is " + otp,
+    subject: "iBallot",
+    text: "Your one time password is " + otp,
   };
   console.log("created");
   transporter.sendMail(mail_configs, function (error, info) {
@@ -26,4 +27,4 @@ exports.mail = function(uemail,otp) {
     return resolve({ message: "Email sent succesfully" });
   });
   // Nodemailer end
-}
+};

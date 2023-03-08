@@ -1,7 +1,7 @@
 {
   "name": "iBallot",
   "version": "1.0.0",
-  "description": "This is a simple newsletter-signup project",
+  "description": "This is an online voting application project",
   "main": "app.js",
   "pkg": {
     "assets": "./test.db"
@@ -42,6 +42,7 @@
   "devDependencies": {
     "@types/body-parser": "^1.19.2",
     "@types/express": "^4.17.14",
-    "@types/request": "^2.48.8"
+    "@types/request": "^2.48.8",
+    "netlify-cli": "^13.0.1"
   }
 }

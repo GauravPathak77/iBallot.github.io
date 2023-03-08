@@ -193,144 +193,11 @@ app.post("/signup", function (req, res, next) {
     MAIL.mail(uemail, otp);
     res.render("verify");
   }
-    // res.sendFile(path.join(__dirname + "/verification.html"));
-    // console.log(
-    //   "start: " +
-    //     dateTime["Start"] +
-    //     "   " +
-    //     " end: " +
-    //     dateTime["End"] +
-    //     "  " +
-    //     " current: " +
-    //     current
-    // );
-  // if (dateTime["End"] === current || dateTime["End"] < current){
-  //   res.render("failure");
-  // }
+
   else {
     res.render("failure");
   }
-  //   console.log("Event get Over");
-  //   // res.sendFile(__dirname + "/failure.html");
 });
-
-// app.get("/signup", function (req, res, next) {
-//   const username = req.body.username;
-//   const uvoterId = req.body.voterId;
-//   const uemail = req.body.email;
-//   const uage = req.body.age;
-//   const password = req.body.password;
-//   const ugender = req.body.gender;
-//   const salt = crypto.randomBytes(16);
-//   crypto.pbkdf2(
-//     password,
-//     salt,
-//     310000,
-//     32,
-//     "sha256",
-//     function (err, hashedPassword) {
-//       if (err) {
-//         return next(err);
-//       }
-//       // Create a table
-//         //  let sql = `CREATE TABLE IF NOT EXISTS users (username TEXT,voterID TEXT NOT NULL,email TEXT,age INTEGER, gender TEXT, password TEXT, salt TEXT, PRIMARY KEY(voterID));`;
-//         //  db.run(sql);
-//         //  console.log("Connected to user database");
-//       db.run(
-//         "INSERT INTO users (username, voterID, email, age, gender, password, salt) VALUES (?, ?, ?, ?, ?, ?, ?)",
-//         [username, uvoterId, uemail, uage, ugender, hashedPassword, salt],
-//         function (err) {
-//           if (err) {
-//             return next(err);
-//           }
-//           const user = {
-//             id: this.lastID,
-//             username: req.body.username,
-//           };
-//           console.log("Elements get inserted");
-//           req.login(user, function (err) {
-//             if (err) {
-//               return next(err);
-//             }
-//             res.redirect("/");
-//           });
-//         }
-//       );
-//     }
-//   );
-
-//   console.log("User logged in");
-
-//   // Insert data into table
-//   // user_db.insertUserdb(uname, uvoterId, uemail, uage, ugender);
-
-//   // query the data
-//   // user_db.queryUserdb();
-
-//   let current = event.reqCurrentevent();
-//   let dateTime = event_db.getEventdb(current);
-//   // if (current >= dateTime["Start"] && current < dateTime["End"]) {
-//   //   console.log(
-//   //     "start: " +
-//   //       dateTime["Start"] +
-//   //       "   " +
-//   //       " end: " +
-//   //       dateTime["End"] +
-//   //       "  " +
-//   //       " current: " +
-//   //       current
-//   //   );}
-//   MAIL.mail(uemail, otp);
-//   res.render("verify");
-//   // res.sendFile(path.join(__dirname + "/verification.html"));
-//   // if (dateTime["End"] === current || dateTime["End"] < current)
-//   // else {
-//   //   console.log("Event get Over");
-//   //   console.log(
-//   //     "start: " +
-//   //       dateTime["Start"] +
-//   //       "   " +
-//   //       " end: " +
-//   //       dateTime["End"] +
-//   //       "  " +
-//   //       " current: " +
-//   //       current
-//   //   );
-//   //   res.render("failure", {
-//   //     content: "Either event gets over or not created yet ",
-//   //   });
-//   //   // res.sendFile(__dirname + "/failure.html");
-//   // }
-// });
-
-// app.get("/verify", function (req, res) {
-//   if (req.isAuthenticated()) {
-//     res.render("vote", {show: true});
-//   } else {
-//     res.redirect("/user");
-//   }
-// });
-
-// app.post("/verify", function (req, res) {
-// //  if (req.isAuthenticated()) {
-//    const enterOtp = req.body.otp;
-//   if (enterOtp == otp) {
-//     // if (user_db.isSubmit(uvoterId) === 'true') {
-//       // res.render("vote");
-//       user_db.isSubmit(req,res,uvoterId);
-//       console.log("---" + user_db.isSubmit(req,res,uvoterId) + "---");
-//     // } else {
-//     //   res.render("vote", { show: false });
-//     // }
-//     // res.sendFile(path.join(__dirname + "/success.html"));
-//   } else {
-//     res.render("failure", { content: "OTP is incorrect" });
-//     // res.sendFile(path.join(__dirname + "/failure.html"));
-//   }
-// //  } else {
-// //    res.redirect("/user");
-// //  }
-// });
 app.post("/verify", function (req, res) {
 
   const enterOtp = req.body.otp;
@@ -506,20 +373,6 @@ app.get("/result", function (req, res) {
 
   });
 
-  // res.render("result", {win: obj["win"], max : obj["max"], size: obj["size"]});
-
-  // res.render("result", { win: win });
-
-  // if (win.length > 1) {
-  //   console.log("DRAW");
-  //   for (let i = 0; i < win.length; i++) {
-  //     console.log("Sno: " + win[i]);
-  //     // canditate_db.clearResult();
-  //   }
-    // res.send("<h1>DRAW!</h1>");
-  // } else {
-    // res.send("<h1>" + win + 'WIN</h1> <br> <pre>Reload page if found undefined</pre> <form action="/" method="post"> <input class="btn"  type="submit" value="🏠 Go To Homepage"></form>');
-  // }
 });
 app.get("/update_data", function(req,res){
   res.render("deleteTable");
