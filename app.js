@@ -126,14 +126,6 @@ app.post("/signup", function (req, res, next) {
   const salt = crypto.randomBytes(16);
   
       // Create a table
-        // let sql = `CREATE TABLE IF NOT EXISTS users (username TEXT,voterID TEXT NOT NULL,email TEXT,age INTEGER, gender TEXT, password TEXT, salt TEXT, PRIMARY KEY(voterID));`;
-        // db.run(sql);
-        // console.log("Connected to user database");
-  // Insert data into table
-  // user_db.insertUserdb(uname, uvoterId, uemail, uage, ugender);
-
-  // query the data
-  // user_db.queryUserdb();
 
   let current = event.reqCurrentevent();
   let dateTime = event_db.getEventdb(current);
@@ -173,7 +165,7 @@ app.post("/signup", function (req, res, next) {
               if (err) {
                 return next(err);
               }
-              // res.redirect("/");
+            
             });
           }
         );
@@ -269,32 +261,6 @@ app.get("/new", function(req,res){
   
 });
 
-// app.get("/verify", function (req, res) {
-//   if (req.isAuthenticated()) {
-//     const enterOtp = req.body.otp;
-//     let isVote;
-//     let sql = `SELECT isvote FROM users WHERE voterID = ?`;
-//     if (enterOtp == otp) {
-//       db.serialize(() => {
-//         db.get(sql, [uvoterId], (err, row) => {
-//           if (err) {
-//             return console.error(err.message);
-//           }
-//           isVote = row.isVote === "true" ? true : false;
-//           console.log(isVote);
-//           res.render("vote", { value: isVote });
-//           return isVote;
-//         });
-//         console.log(isVote);
-//       });
-//     } else {
-//       res.render("failure", { content: "OTP is incorrect" });
-//     }
-//   }
-// });
-
-//   // query
-// canditate_db.queryCanditatedb();
 
 // logout
 app.post("/logout", function (req, res, next) {
@@ -317,34 +283,10 @@ app.post("/logout", function (req, res, next) {
     }
   });
 });
-// app.post("/logout", function (req, res, next) {
-//   const val = req.body.VAL;
-//   // update
-//   canditate_db.updateCanditatedb(val);
-//   //query
-//   canditate_db.queryCanditatedb();
 
-
-//   // req.session.destroy();
-//   // req.session.destroy((err) => {
-//   //   res.redirect("/"); // will always fire after session is destroyed
-//   // });
-//   res.redirect("/");
-//   // process.exit(0);
-// });
-
-// app.delete("/confirm", function(req, res) {
-//   console.log("DELETE Request Called");
-//   res.send('<h1>YOUR VOTE IS SUBMITTED </h1> <form action="/" method="post"><input class="btn"  type="submit" value="🏠 Go To Homepage"></form>');
-// });
 
 // result
 app.get("/result", function (req, res) {
-  // let AN = canditate_db.resultCanditatedb();
-  // let SN = AN["SN"];
-  // let MN = AN["MN"];
-  
-  // let obj = canditate_db.getWinner();
 
   let query = "SELECT Sno, Vote FROM CANDITATE ORDER BY Vote DESC";
   db.all(query, [], (err, rows) => {
