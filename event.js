@@ -200,7 +200,7 @@ exports.Cal_event = function (startDate, endDate) {
     }
 
     let currDate2 = `${year}-${month}-${day}T${hour}:${minute}:00.000${TIMEOFFSET}`;
-    // let currDate2 = `${year}-${month}-${day}T${hour}:${minute}`;
+    // let currDate = `${year}-${month}-${day}T${hour}:${minute}`;
     // let current_event = new Date(Date.parse(currDate));
     return currDate2.toString();
   };
