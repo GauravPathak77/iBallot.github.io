@@ -192,11 +192,11 @@ exports.Cal_event = function (startDate, endDate) {
     }
     let hour = date.getHours();
     if (hour < 10) {
-      hour = `0${hour}`;
+      hour = `0${hour}` + 5;
     }
     let minute = date.getMinutes();
     if (minute < 10) {
-      minute = `0${minute}`;
+      minute = `0${minute}` + 30;
     }
 
     let currDate2 = `${year}-${month}-${day}T${hour}:${minute}:00.000${TIMEOFFSET}`;
