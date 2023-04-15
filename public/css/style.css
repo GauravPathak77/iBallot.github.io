@@ -12,7 +12,7 @@ body {
 }
 .form-signup{
   border: 1px solid black;
-  background: rgba(153, 0, 255, 0.708);
+  background: #3C486B;
   border-radius: 3%;
   padding: 2vw;
 }

@@ -22,8 +22,6 @@ const ejs = require('ejs');
 let n = (Math.random() + 1) * 1000;
 const otp = Math.floor(n);
 let uvoterId = null;
-// const indexRouter = require("./routes/index");
-// const authRouter = require("./routes/auth");
 const connect = require("connect");
 const SQLiteStore = require('connect-sqlite3')(session);
 const db = new sqlite3.Database("./assets/test.db", sqlite3.OPEN_READWRITE, (err) => {
@@ -37,7 +35,6 @@ app.use(
     secret: "My Secret",
     resave: false,
     saveUninitialized: false
-    // store: new SQLiteStore({ db: "test.db", dir: "./assets/test.db" }),
   })
 );
 // Passport
@@ -125,7 +122,7 @@ app.post("/signup", function (req, res, next) {
   const ugender = req.body.gender;
   const salt = crypto.randomBytes(16);
   
-      // Create a table
+  // Create a table
 
   let current = event.reqCurrentevent();
   let dateTime = event_db.getEventdb(current);

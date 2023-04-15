@@ -22,10 +22,6 @@ exports.Cal_event = function (startDate, endDate) {
 
   // Your TIMEOFFSET Offset
   const TIMEOFFSET = "+05:30";
-
-  // console.log(dateTimeForCalander());
-  //   var startDate = req.body.start;
-  //   var endDate = req.body.end;
   console.log(startDate + " " + endDate);
   // Get date-time string for calender
   const dateTimeForCalander = () => {
@@ -49,8 +45,6 @@ exports.Cal_event = function (startDate, endDate) {
       minute = `0${minute}`;
     }
 
-    // let newDateTime = `${year}-${month}-${day}T${hour}:${minute}:00.000${TIMEOFFSET}`;
-
     let newStartDateTime = `${startDate}:00.000${TIMEOFFSET}`;
     let event1 = new Date(Date.parse(newStartDateTime));
     newstartDate = event1;
@@ -58,10 +52,6 @@ exports.Cal_event = function (startDate, endDate) {
     let newEndtDateTime = `${endDate}:00.000${TIMEOFFSET}`;
     let event2 = new Date(Date.parse(newEndtDateTime));
     newendDate = event2;
-    // Delay in end time is 1
-    // let newendDate = new Date(
-    //   new Date(newstartDate).setHours(newstartDate.getHours() + 1)
-    // );
 
     return {
       start: newstartDate,
@@ -132,17 +122,6 @@ exports.Cal_event = function (startDate, endDate) {
     }
   };
 
-  // let start = dateTime["start"];
-  // let end = dateTime["end"];
-
-  // getEvents(start, end)
-  //     .then((res) => {
-  //         console.log(res);
-  //     })
-  //     .catch((err) => {
-  //         console.log(err);
-  //     });
-
   // Delete an event from eventID
   const deleteEvent = async (eventId) => {
     try {
@@ -200,40 +179,6 @@ exports.Cal_event = function (startDate, endDate) {
     }
 
     let currDate2 = `${year}-${month}-${day}T${hour}:${minute}:00.000${TIMEOFFSET}`;
-    // let currDate = `${year}-${month}-${day}T${hour}:${minute}`;
-    // let current_event = new Date(Date.parse(currDate));
     return currDate2.toString();
   };
-  // Current time end
-
-  // exports.req_event = function() {
-  // // res.sendFile(__dirname + "/index.html");
-  // let current = calcDate();
-  // if(newendDate === null) {
-  //   console.log("Event is not created yet");
-
-  // }
-  // else if (newendDate === current || newendDate < current) {
-  //   console.log("Event get Over");
-  // }
-
-  // console.log(
-  //   "start: " +
-  //     newstartDate +
-  //     "   " +
-  //     " end: " +
-  //     newendDate +
-  //     "  " +
-  //     " current: " +
-  //     current
-  // );
-  // return {
-  //   start: 
-  //     newstartDate,
-  //   end:
-  //     newendDate,
-  //   current:
-  //     current
-  // }
- 
-  // }
+  

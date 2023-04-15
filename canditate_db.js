@@ -3,8 +3,6 @@ console.log("enter in canditatedb");
 let db = new sqlite3.Database("./assets/test.db", sqlite3.OPEN_READWRITE, (err) => {
   if (err) return console.error(err.message);
 });
-//  let max = 0;
-//  let SN = [0], MN = [0];
  let response = 0;
 
 //create table
@@ -37,12 +35,7 @@ db.get(sql1, [], (err, row) => {
     if (Err) return console.error(Err.message);
   });
 });
-    //  db.run(Sql, [2, "Canditate 2", "Party 2", "Symbol 2", 0], (err) => {
-    //    if (err) return console.error(err.message);
-    //  });
-    //   db.run(Sql, [3, "Canditate 3", "Party 3", "Symbol 3", 0], (err) => {
-    //     if (err) return console.error(err.message);
-    //   });
+  
   console.log("Elements get inserted");
 };
 
@@ -94,48 +87,7 @@ exports.updateCanditatedb = (res,val, getID) => {
   return response;
 };
 
-// exports.resultCanditatedb = () => {
-//  let max_value = 0, max = 0;
-//   // Max
-//   let sql1 = `SELECT MAX(vote) AS max_value FROM CANDITATE;`;
-//   db.get(sql1, (err, result) => {
-//     if (err) {
-//       console.log(err.message);
-//     }
-//     console.log("The maximum value in vote is: " + result.max_value);
-//     max = result.max_value;
-//   });
-
-//   let sql2 = `SELECT Sno, vote FROM CANDITATE WHERE vote = ?;`;
-//   db.all(sql2, [max], (err, rows) => {
-//     if (err) {
-//       console.log(err.message);
-//     }
-//     rows.forEach((row) => {
-//       for(i = 0; i< SN.length; i++) {
-//         if(row.Sno == SN[i]) {
-//            return {
-//              SN: SN,
-//              MN: MN,
-//            };
-//         }
-//       }
-//       SN.push(row.Sno);
-//       MN.push(row.vote);
-//     });
-//   });
-//   return {
-//     SN : SN,
-//     MN : MN
-//   }
-// }
-
 exports.getWinner = () =>{
-  // const db = new sqlite3.Database(dbFile, (err) => {
-  //   if (err) {
-  //     return callback(err);
-  //   }
-  // });
 
   let query = "SELECT Sno, Vote FROM CANDITATE ORDER BY Vote DESC";
   db.all(query, [], (err, rows) => {
@@ -156,23 +108,11 @@ exports.getWinner = () =>{
 
     console.log("The maximum value in vote is: " + maxVote);
     console.log("Winning team is " + win[0]);
-    // res.render("result", { win: win });
-    // if(win.length > 1){
       return{
         win : win,
         max : maxVote,
         size : win.length
       };
-    // }
-    // else{
-    //   return win[0];
-    // }
-    // db.close((err) => {
-    //   if (err) {
-    //     return callback(err);
-    //   }
-    //   callback(null, win);
-    // });
   });
 }
 
@@ -188,13 +128,6 @@ exports.dropCanditatedb = () => {
   });
   //Delete from table
 };
-
-// exports.clearResult = () =>{
-//   for(i=0;i<= SN.length;i++) {
-//     SN.pop();
-//     MN.pop();
-//   }
-// }
 
 exports.deleteCanditatedb = () => {
   db.run("DELETE FROM CANDITATE", function (err) {
