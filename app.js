@@ -98,10 +98,10 @@ app.post("/calendar", function (req, res) {
   console.log("Entered in calendar post");
   let StartDate = req.body.start;
   let EndDate = req.body.end;
-  console.log(StartDate + " " + EndDate);
+  console.log("Event start time is: " + StartDate + " and end time is: " + EndDate);
   event_db.insertEventdb(StartDate, EndDate);
   var dateTime = event.Cal_event(StartDate, EndDate);
-  console.log(dateTime["start"] + "   " + dateTime["end"]);
+  console.log("Database start time is: "+dateTime["start"] + " and end time is: " + dateTime["end"]);
   res.sendFile(__dirname + "/index.html");
 });
 
@@ -126,6 +126,7 @@ app.post("/signup", function (req, res, next) {
 
   let current = event.reqCurrentevent();
   let dateTime = event_db.getEventdb(current);
+  console.log("Current time is: " + current);
   if (current >= dateTime["Start"] && current < dateTime["End"]) {
     crypto.pbkdf2(
       password,

@@ -169,11 +169,13 @@ exports.Cal_event = function (startDate, endDate) {
     if (day < 10) {
       day = `0${day}`;
     }
-    let hour = date.getHours() + 5;
+    // let hour = date.getHours() + 5;
+    let hour = date.getHours();
     if (hour < 10) {
       hour = `0${hour}`;
     }
-    let minute = date.getMinutes() + 30;
+    // let minute = date.getMinutes() + 30;
+     let minute = date.getMinutes();
     if (minute < 10) {
       minute = `0${minute}`;
     }
