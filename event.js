@@ -21,7 +21,7 @@ exports.Cal_event = function (startDate, endDate) {
   );
 
   // Your TIMEOFFSET Offset
-  const TIMEOFFSET = "+05:30";
+  const TIMEOFFSET = Date.getTimezoneOffset();
   console.log(startDate + " " + endDate);
   // Get date-time string for calender
   const dateTimeForCalander = () => {
@@ -180,7 +180,8 @@ exports.Cal_event = function (startDate, endDate) {
       minute = `0${minute}`;
     }
 
-    let currDate2 = `${year}-${month}-${day}T${hour}:${minute}:00.000${TIMEOFFSET}`;
+    // let currDate2 = `${year}-${month}-${day}T${hour}:${minute}:00.000${TIMEOFFSET}`;
+    let currDate2 = `${year}-${month}-${day}T${hour}:${minute}:${TIMEOFFSET}`;
     return currDate2.toString();
   };
   
