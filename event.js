@@ -157,31 +157,34 @@ exports.Cal_event = function (startDate, endDate) {
 
 // Current time start
  exports.reqCurrentevent = function() {
-    // Your TIMEOFFSET Offset
     const TIMEOFFSET = "+05:30";
     let date = new Date();
-    let year = date.getFullYear();
-    let month = date.getMonth() + 1;
+    let year = date.getUTCFullYear();
+    let month = date.getUTCMonth() + 1;
     if (month < 10) {
       month = `0${month}`;
     }
-    let day = date.getDate();
+    let day = date.getUTCDate();
     if (day < 10) {
       day = `0${day}`;
     }
-    // let hour = date.getHours() + 5;
-    let hour = date.getHours();
+    let hour = date.getUTCHours() + 5; // Add 5 hours to UTC time to convert to IST
+    if (hour >= 24) {
+      hour -= 24;
+    }
     if (hour < 10) {
       hour = `0${hour}`;
     }
-    // let minute = date.getMinutes() + 30;
-     let minute = date.getMinutes();
+    let minute = date.getUTCMinutes() + 30; // Add 30 minutes to UTC time to convert to IST
+    if (minute >= 60) {
+      minute -= 60;
+    }
     if (minute < 10) {
       minute = `0${minute}`;
     }
 
-    // let currDate2 = `${year}-${month}-${day}T${hour}:${minute}:00.000${TIMEOFFSET}`;
     let currDate = `${year}-${month}-${day}T${hour}:${minute}:${TIMEOFFSET}`;
     return currDate.toString();
+
   };
   
