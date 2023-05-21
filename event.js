@@ -157,34 +157,32 @@ exports.Cal_event = function (startDate, endDate) {
 
 // Current time start
  exports.reqCurrentevent = function() {
-    const TIMEOFFSET = "+05:30";
-    let date = new Date();
-    let year = date.getUTCFullYear();
-    let month = date.getUTCMonth() + 1;
-    if (month < 10) {
-      month = `0${month}`;
-    }
-    let day = date.getUTCDate();
-    if (day < 10) {
-      day = `0${day}`;
-    }
-    let hour = date.getUTCHours() + 6; // Add 5 hours to UTC time to convert to IST
-    if (hour >= 24) {
-      hour -= 24;
-    }
-    if (hour < 10) {
-      hour = `0${hour}`;
-    }
-    let minute = date.getUTCMinutes() + 30; // Add 30 minutes to UTC time to convert to IST
-    if (minute >= 60) {
-      minute -= 60;
-    }
-    if (minute < 10) {
-      minute = `0${minute}`;
-    }
+const TIMEOFFSET = "+05:30";
+let date = new Date();
+let year = date.getUTCFullYear();
+let month = date.getUTCMonth() + 1;
+if (month < 10) {
+  month = `0${month}`;
+}
+let day = date.getUTCDate();
+if (day < 10) {
+  day = `0${day}`;
+}
+let hour = date.getUTCHours() + 5; // Add 5 hours to UTC time to convert to IST
+if (hour >= 24) {
+  hour -= 24;
+}
+if (hour < 10) {
+  hour = `0${hour}`;
+}
+let minute = date.getUTCMinutes() + 30; // Add 30 minutes to UTC time to convert to IST
+if (minute >= 60) {
+  minute -= 60;
+}
+if (minute < 10) {
+  minute = `0${minute}`;
+}
 
-    let currDate = `${year}-${month}-${day}T${hour}:${minute}:${TIMEOFFSET}`;
-    return currDate.toString();
-
-  };
-  
+let currDate = `${year}-${month}-${day}T${hour}:${minute}:${TIMEOFFSET}`;
+return currDate.toString();
+};
