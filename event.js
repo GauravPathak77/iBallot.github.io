@@ -168,7 +168,7 @@ exports.Cal_event = function (startDate, endDate) {
     if (day < 10) {
       day = `0${day}`;
     }
-    let hour = date.getUTCHours() + 5; // Add 5 hours to UTC time to convert to IST
+    let hour = date.getUTCHours() + 6; // Add 5 hours to UTC time to convert to IST
     if (hour >= 24) {
       hour -= 24;
     }
