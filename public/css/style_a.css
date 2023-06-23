@@ -103,22 +103,87 @@ body {
 }
 
 .action_btn{
-  width: 100%;
-  display: grid;
-    grid-template-columns: auto auto;
-    gap: 5vw;
-  /* flex-direction: row; */
-  justify-content: space-evenly;
-  /* align-items: center; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:space-around;
 }
 .action{
  border: 1px solid black;
-  padding: 15%;
-  padding-right: 80%;
+   padding: 5%;
+  /*padding-right: 80%; */
   /* padding-right: ; */
   border-radius: 1vw;
-  background-color: antiquewhite;
-  margin: 10% 20% 10% 20%;
+  background-color: #606C5D;
+  color: #fff;
+  font-size: 2vw;
+  margin: 5% 10% 5% 10%;
   text-align: center;
-  min-width: 10vw;
+  width: 20vw;
+}
+.action_btn2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.action2 {
+  border: 1px solid black;
+  /*padding-right: 80%; */
+  padding: 1%;
+  border-radius: 1vw;
+  background-color: #606C5D;
+  font-size: 2vw;
+  margin: 5vw 10vw 5vw 10vw;
+  /* position: relative;
+  left: 20%; */
+  text-align: center;
+  width: 20vw;
+}
+
+
+@media(max-width:748px){
+  .form-signin {
+      max-width: 70vw;
+    }
+        .action_btn {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          align-items:center;
+        }
+    .action_cont{
+      font-size: 2vw;
+    }
+        .action {
+          padding: 10%;
+          /*padding-right: 80%; */
+          /* padding-right: ; */
+          border-radius: 1vw;
+          font-size: 2vw;
+          margin: 20% 100%;
+          /* text-align: center; */
+          width: 25vw;
+        }
+        .result{
+          width: 60vw;
+          position:relative;
+          left:  20%;
+          height: 30vh;
+        }
+                .btn_result {
+                  width: 40vw;
+                  padding: 1vw;
+                  border-radius: 2vw;
+                }
+                                .action2 {
+                                  padding: 8%;
+                                  /*padding-right: 80%; */
+                                  /* padding-right: ; */
+                                  border-radius: 1vw;
+                                  font-size: 5vw;
+                                  margin: 10% 100%;
+                                  /* text-align: center; */
+                                  width: 50vw;
+                                }
 }
